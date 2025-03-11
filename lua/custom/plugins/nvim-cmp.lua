@@ -29,6 +29,14 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
+			window = {
+				completion = {
+					border = "rounded"
+				},
+				documentation = {
+					border = "rounded"
+				}
+			},
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
@@ -62,7 +70,6 @@ return {
 					ellipsis_char = "...",
 				}),
 			},
-
 		})
-	end
+	end,
 }

@@ -100,7 +100,6 @@ return {
 				},
 				lualine_c = {
 					{ "branch" },
-					{ "filetype" },
 					{
 						function()
 							return " ─"
