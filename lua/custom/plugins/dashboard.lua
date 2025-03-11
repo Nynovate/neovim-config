@@ -26,7 +26,7 @@ return {
             "│ │ ╰───────│──────────│───────╯ │ │",
             "│ ╰──────────────────────────────╯ │",
             "╰──────────────────────────────────╯",
-			"           Press 󰌑  to start        "
+			"          Press 󰌑 to start          "
         }
 
         -- Function to generate padding
@@ -52,7 +52,8 @@ return {
 		vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#aaaaaa", bold = true })
 		dashboard.section.header.opts.hl = "AlphaHeader"
 		dashboard.section.footer.val = {
-			" "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+			" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "
+
 		}
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "alpha",

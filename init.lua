@@ -1,6 +1,28 @@
 require("custom.core")
 require("custom.lazy")
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AlphaReady",
+  callback = function()
+    vim.cmd("set showtabline=0")  -- Hide bufferline
+  end
+})
+
+vim.api.nvim_create_autocmd("BufUnload", {
+  pattern = "<buffer>",
+  callback = function()
+    vim.cmd("set showtabline=2")  -- Restore bufferline when leaving Alpha
+  end
+})
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    if vim.bo.filetype == "alpha" then
+      vim.cmd("close")  -- Close terminal if in Alpha
+    end
+  end
+})
+
 vim.cmd("highlight Normal guibg=NONE")
 vim.cmd("highlight NormalNC guibg=NONE")
 vim.cmd("highlight IndentLineCurrent guibg=NONE guifg=#aaaaaa")

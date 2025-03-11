@@ -2,7 +2,10 @@ return
 {
 	'akinsho/toggleterm.nvim',
 	config = function()
-			require("toggleterm").setup({
+			local	toggleterm = require("toggleterm");
+
+			toggleterm.setup({
+				display_name = "Terminal",
 				open_mapping = [[<S-TAB>]],
 				direction = 'float',
 				highlights = {
