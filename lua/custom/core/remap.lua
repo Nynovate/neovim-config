@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+-- Move current line
+keymap.set("n", "md", ":<C-u>execute 'move +' . v:count1<CR>", { noremap = true, silent = true })
+keymap.set("n", "mu", ":<C-u>execute 'move -' . (v:count1 + 1)<CR>", { noremap = true, silent = true })
+
 -- quit insert mode more quickly
 keymap.set("i", "jk", "<ESC>", { desc = "Quit insert mode quickly"})
 keymap.set("v", "i", "<ESC>", { desc = "Quit visual mode quickly"})
@@ -27,12 +31,6 @@ keymap.set("n", "<C-x>", "<cmd>q<CR>", { desc = "Close Tab" })
 
 -- shortcuts to save the files
 keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save the current files" })
-
--- move line up or down
-keymap.set("n", "<C-Up>", ":m .-2<CR>==")
-keymap.set("n", "<C-Down>", ":m .+1<CR>==")
-keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
-keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
 
 -- shortcuts to save and format the current files
 keymap.set("n", "<C-f>", "<cmd>w | !python3 -m c_formatter_42 %<CR>")
