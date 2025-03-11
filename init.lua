@@ -3,6 +3,7 @@ require("custom.lazy")
 
 vim.cmd("highlight Normal guibg=NONE")
 vim.cmd("highlight NormalNC guibg=NONE")
+vim.cmd("highlight IndentLineCurrent guibg=NONE guifg=#aaaaaa")
 vim.cmd("highlight WinSeparator guifg=#aaaaaa")
 vim.cmd("highlight NormalFloat guibg=NONE")
 vim.cmd("highlight FloatBorder guibg=NONE")
