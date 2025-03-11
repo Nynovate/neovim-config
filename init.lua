@@ -1,6 +1,14 @@
 require("custom.core")
 require("custom.lazy")
 
+vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"}, {
+  callback = function()
+    if vim.bo.filetype == "alpha" then
+      vim.api.nvim_win_set_cursor(0, {1, 0})  -- Force cursor to line 1, column 0
+    end
+  end
+})
+
 vim.api.nvim_create_autocmd("User", {
   pattern = "AlphaReady",
   callback = function()
