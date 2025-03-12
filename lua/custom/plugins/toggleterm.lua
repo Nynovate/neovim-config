@@ -16,7 +16,7 @@ return
 				float_opts = {
 					border = 'curved'
 				},
-				shell = 'bash',
+				shell = 'zsh',
 				persist_mode = false,
 			})
 	end
