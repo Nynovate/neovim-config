@@ -79,21 +79,21 @@ return {
 							local column = vim.api.nvim_win_get_cursor(0)
 
 							if (actual_mode == "NORMAL") then
-								return " │N│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							elseif (actual_mode == "INSERT") then
-								return " │I│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							elseif (actual_mode == "VISUAL") then
-								return " │V│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							elseif (actual_mode == "REPLACE") then
-								return " │R│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							elseif (actual_mode == "TERMINAL") then
-								return " │T│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							elseif (actual_mode == "V-BLOCK") then
-								return " │V-B│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							elseif (actual_mode == "COMMAND") then
-								return "󰘳 │C│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return "󰘳 │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							else
-								return " │" .. actual_mode .. "│ " .. tostring((column[2] + 1)) .. " 󰣟 "
+								return " │ " .. actual_mode .. " │ " .. tostring((column[2] + 1)) .. " 󰣟 "
 							end
 						end,
 						padding = 0,
