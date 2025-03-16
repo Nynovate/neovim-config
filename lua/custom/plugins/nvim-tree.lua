@@ -49,17 +49,45 @@ return {
 			view = {
 				width = 35,
 				relativenumber = false,
+				float = {
+					enable = true,
+					quit_on_focus_loss = true
+				}
 			},
 
 			renderer = {
 				indent_markers = {
 					enable = true,
+					inline_arrows = true,
+					icons = {
+						corner = "╰",
+						edge = "│",
+						item = "│",
+						bottom = "─",
+						none = " "
+					}
+				},
+				icons = {
+					glyphs = {
+						folder = {
+							arrow_closed = "▸",
+							arrow_open = "▾",
+						},
+					}
 				},
 			},
 
 			git = {
 				ignore = false,
 			},
+
+			actions = {
+				file_popup = {
+					open_win_config = {
+						border = "rounded"
+					}
+				}
+			}
 		})
 		local keymap = vim.keymap
 
