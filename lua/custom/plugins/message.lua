@@ -58,8 +58,10 @@ return {
 				hover = {
 					enabled = true,
 					silent = false,
-					view = nil,
-					opts = {},
+					view = "hover",
+					opts = {
+						border = "rounded",
+					},
 				},
 				signature = {
 					enabled = true,
@@ -69,8 +71,10 @@ return {
 						luasnip = true,
 						throttle = 50,
 					},
-					view = nil,
-					opts = {},
+					view = "popup",
+					opts = {
+						border = "rounded",
+					},
 				},
 				message = {
 					enabled = true,
