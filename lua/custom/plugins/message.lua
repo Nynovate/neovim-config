@@ -77,7 +77,7 @@ return {
 						luasnip = true,
 						throttle = 50,
 					},
-					view = "popup",
+					view = "hover",
 					opts = {
 						border = "rounded",
 					},
