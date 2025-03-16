@@ -24,7 +24,7 @@ return {
 		vim.cmd("highlight CmpItemAbbrMatch guibg=NONE ctermbg=NONE guifg=NONE ctermfg=NONE")
 		vim.cmd("highlight CmpItemAbbrMatchFuzzy guibg=NONE ctermbg=NONE guifg=NONE ctermfg=NONE")
 		vim.cmd("highlight CmpItemKind guibg=NONE ctermbg=NONE guifg=NONE ctermfg=NONE")
-		vim.cmd("highlight CmpItemMenu guibg=NONE ctermbg=NONE guifg=NONE ctermfg=NONE")
+		vim.cmd("highlight CmpItemMenu guibg=NONE ctermbg=NONE guifg=#aaaaaa ctermfg=NONE")
 
 		require("luasnip.loaders.from_vscode").lazy_load()
 
