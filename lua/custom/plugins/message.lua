@@ -40,7 +40,7 @@ return {
 						{ "{data.progress.client}", hl_group = "NoiceLspProgressLight"},
 					},
 					format_done = {
-						{ " ", hl_group = "NoiceLspProgressLight" },
+						{ "  ", hl_group = "NoiceLspProgressLight" },
 						{ "{data.progress.title}", hl_group = "NoiceLspProgressColor"},
 						{ " ", hl_group = "NoiceLspProgressColor"},
 						{ "{data.progress.client}", hl_group = "NoiceLspProgressLight"},
