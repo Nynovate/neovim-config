@@ -6,6 +6,7 @@ return {
 	config = function()
 		vim.cmd("colorscheme tokyonight");
 		vim.cmd("highlight ColorColumn guibg=NONE");
+		vim.cmd("highlight FloatBorder guibg=NONE guifg=#aaaaaa")
 	end,
 	opts = {},
 

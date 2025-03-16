@@ -42,3 +42,4 @@ parameter.swapfile = false
 
 -- indicate the 80th column
 parameter.colorcolumn = "80";
+parameter.cursorcolumn = false;
