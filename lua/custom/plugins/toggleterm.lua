@@ -12,19 +12,28 @@ return
 				display_name = "Terminal",
 				open_mapping = [[<S-TAB>]],
 				direction = 'float',
+
 				highlights = {
 					FloatBorder = {
 						guifg = "#aaaaaa",
 					}
 				},
+
 				float_opts = {
 					width = win_width,
 					height = win_height - screen_padding,
 					col = vim.api.nvim_win_get_width(0) - win_width - screen_padding,
 					row = screen_padding / 2,
-					border = 'curved'
+					border = 'curved',
+					title_pos = "right"
 				},
-				shell = 'zsh',
+
+				winbar = {
+					enabled = true,
+					name_formatter = "| Terminal |"
+				},
+
+				-- shell = 'zsh',
 				persist_mode = false,
 			})
 	end

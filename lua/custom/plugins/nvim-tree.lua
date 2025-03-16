@@ -45,13 +45,24 @@ return {
 			end
 		end
 
+		local	tree_width = math.floor(vim.api.nvim_win_get_width(0) / 6);
+		local	tree_height = math.floor(vim.api.nvim_win_get_height(0));
+		local	screen_padding = 5
+
 		nvimtree.setup({
 			view = {
-				width = 35,
 				relativenumber = false,
 				float = {
 					enable = true,
-					quit_on_focus_loss = true
+					quit_on_focus_loss = true,
+					open_win_config = {
+						width = tree_width,
+						height = tree_height - screen_padding,
+						col = screen_padding,
+						row = screen_padding / 2,
+						title = "| Explorer |",
+						title_pos = "left"
+					}
 				}
 			},
 
