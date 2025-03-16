@@ -13,6 +13,18 @@ return {
 
 	config = function()
 
+		require("notify").setup({
+			merge_duplicates = true,
+			background_colour = "#000000",
+			fpd = 30,
+			level = 2,
+			minimum_width = 50,
+			render = "compact",
+			stages = "slide",
+			timeout = 3000,
+			replace = true,
+		})
+
 		require("noice").setup({
 			cmdline = {
 				enabled = true,
@@ -30,25 +42,19 @@ return {
 			},
 			lsp = {
 				progress = {
+					title = "Workspace Loading",
 					enabled = true,
 					format = {
-						{ "{data.progress.percentage}", hl_group = "NoiceLspProgressColor"},
-						{ "%", hl_group = "NoiceLspProgressColor"},
-						{ " ", hl_group = "NoiceLspProgressColor"},
-						{ "{data.progress.title}", hl_group = "NoiceLspProgressColor"},
+						{ "{spinner}", hl_group = "NoiceLspProgressColor"},
 						{ " ", hl_group = "NoiceLspProgressColor"},
 						{ "{data.progress.client}", hl_group = "NoiceLspProgressLight"},
 					},
 					format_done = {
 						{ "  ", hl_group = "NoiceLspProgressLight" },
-						{ "{data.progress.title}", hl_group = "NoiceLspProgressColor"},
-						{ " ", hl_group = "NoiceLspProgressColor"},
-						{ "{data.progress.client}", hl_group = "NoiceLspProgressLight"},
+						{ "{data.progress.title}", hl_group = "NoiceLspProgressLight"},
 					},
 					view = "mini",
-					opts = {
-						replace = 1,
-					}
+					opts = {},
 				},
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = false,
@@ -81,19 +87,6 @@ return {
 					view = "notify",
 				},
 			},
-		})
-
-		vim.notify = require("notify")
-
-		require("notify").setup({
-			background_colour = "#000000",
-			fpd = 30,
-			level = 2,
-			minimum_width = 50,
-			render = "default",
-			stages = "slide",
-			timeout = 3000,
-			replace = true,
 		})
 	end,
 }
