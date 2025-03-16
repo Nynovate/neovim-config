@@ -23,8 +23,7 @@ return {
 				},
 				layout_strategy = "vertical",
 				layout_config = {
-					height = 80,
-					width = 100
+					width = math.floor(vim.api.nvim_win_get_width(0) / 2),
 				},
 			},
 		})
