@@ -66,4 +66,4 @@ require('transparent').clear_prefix('telescope')
 require('transparent').clear_prefix('trouble')
 
 vim.cmd("set laststatus=3")
-vim.cmd("set fillchars+=eob:⫻ ")
+vim.cmd("set fillchars+=eob:  ")
