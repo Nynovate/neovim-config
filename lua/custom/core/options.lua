@@ -34,7 +34,7 @@ parameter.background = "dark"
 parameter.signcolumn = "yes"
 
 -- undo parameter, stock everything inside a folder in ~/
-parameter.undodir = "~/.nvim_undo_folder/"
+parameter.undodir = ".nvim_undo_folder/"
 parameter.undofile = true
 
 -- never create a fuc**** swap files again
