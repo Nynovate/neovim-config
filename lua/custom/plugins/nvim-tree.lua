@@ -60,7 +60,7 @@ return {
 						height = tree_height - screen_padding,
 						col = screen_padding,
 						row = screen_padding / 2,
-						title = "| Explorer |",
+						title = "|   Explorer |",
 						title_pos = "left"
 					}
 				}
