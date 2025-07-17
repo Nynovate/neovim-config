@@ -73,10 +73,23 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 		mason_lspconfig.setup_handlers({
+			-- function(server_name)
+			-- 	lspconfig[server_name].setup({
+			-- 		capabilities = capabilities,
+			-- 	})
+			-- end,
 			function(server_name)
-				lspconfig[server_name].setup({
+				local opts = {
 					capabilities = capabilities,
-				})
+				}
+
+				-- Special handling for clangd
+				if server_name == "clangd" then
+					opts.cmd = { "clangd" } -- Optional: Can add flags here if needed
+					opts.root_dir = require("lspconfig.util").root_pattern(".clangd", "compile_commands.json", "compile_flags.txt", ".git")
+				end
+
+				lspconfig[server_name].setup(opts)
 			end,
 		})
 	end
