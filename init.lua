@@ -4,33 +4,33 @@ require('terminal')
 require('lazygit_wrapper')
 
 vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"}, {
-  callback = function()
-    if vim.bo.filetype == "alpha" then
-      vim.api.nvim_win_set_cursor(0, {1, 0})  -- Force cursor to line 1, column 0
-    end
-  end
+	callback = function()
+		if vim.bo.filetype == "alpha" then
+			vim.api.nvim_win_set_cursor(0, {1, 0})	-- Force cursor to line 1, column 0
+		end
+	end
 })
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = "AlphaReady",
-  callback = function()
-    vim.cmd("set showtabline=0")  -- Hide bufferline
-  end
+	pattern = "AlphaReady",
+	callback = function()
+		vim.cmd("set showtabline=0")	-- Hide bufferline
+	end
 })
 
 vim.api.nvim_create_autocmd("BufUnload", {
-  pattern = "<buffer>",
-  callback = function()
-    vim.cmd("set showtabline=2")  -- Restore bufferline when leaving Alpha
-  end
+	pattern = "<buffer>",
+	callback = function()
+		vim.cmd("set showtabline=2")	-- Restore bufferline when leaving Alpha
+	end
 })
 
 vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function()
-    if vim.bo.filetype == "alpha" then
-      vim.cmd("close")  -- Close terminal if in Alpha
-    end
-  end
+	callback = function()
+		if vim.bo.filetype == "alpha" then
+			vim.cmd("close")	-- Close terminal if in Alpha
+		end
+	end
 })
 
 vim.cmd("highlight Normal guibg=NONE")
@@ -68,4 +68,18 @@ require('transparent').clear_prefix('telescope')
 require('transparent').clear_prefix('trouble')
 
 vim.cmd("set laststatus=3")
-vim.cmd("set fillchars+=eob:  ")
+vim.cmd("set fillchars+=eob:	")
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "TelescopePrompt",
+	callback = function()
+		vim.o.laststatus = 0 -- Hide statusline when Telescope is active
+	end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "TelescopeClose", -- Or another appropriate event for Telescope closure
+	callback = function()
+		vim.o.laststatus = 2 -- Restore statusline when Telescope closes
+	end,
+})

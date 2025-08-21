@@ -68,7 +68,7 @@ return {
 				theme = custom;
 				section_separators = { left = '', right = '' },
 				component_separators = { left = '', right = '' },
-				disabled_filetypes = { 'alpha' }
+				disabled_filetypes = { 'alpha', "TelescopePrompt", "NvimTree", "popup" }
 			},
 			sections = {
 				lualine_a = {
