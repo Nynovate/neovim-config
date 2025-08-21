@@ -25,26 +25,31 @@ return {
 				a = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.blue, gui = "bold" },
 				c = { bg = colors.bg, fg = colors.fg, gui = "bold" },
+				y = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 			},
 			insert = {
 				a = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.green, gui = "bold" },
 				c = { bg = colors.bg, fg = colors.fg, gui = "bold" },
+				y = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 			},
 			visual = {
 				a = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.purple, gui = "bold" },
 				c = { bg = colors.bg, fg = colors.fg, gui = "bold" },
+				y = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 			},
 			command = {
 				a = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.yellow, gui = "bold" },
 				c = { bg = colors.bg, fg = colors.fg, gui = "bold" },
+				y = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 			},
 			replace = {
 				a = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.red, gui = "bold" },
 				c = { bg = colors.bg, fg = colors.fg, gui = "bold" },
+				y = { bg = colors.bg, fg = colors.fg, gui = "bold" },
 			},
 			inactive_bg = {
 				a = { bg = "NONE", fg = "NONE", gui = "bold" },
@@ -56,12 +61,14 @@ return {
 			},
 		}
 
+		vim.g.gitblame_display_virtual_text = 0 -- Disable virtual text
+
 		lualine.setup({
 			options = {
 				theme = custom;
 				section_separators = { left = '', right = '' },
 				component_separators = { left = '', right = '' },
-    			disabled_filetypes = { 'alpha' }
+				disabled_filetypes = { 'alpha' }
 			},
 			sections = {
 				lualine_a = {
@@ -100,7 +107,7 @@ return {
 					},
 				},
 				lualine_c = {
-					{ "branch" },
+					{ "branch" , align = "center" },
 					{
 						function()
 							return " ─"
@@ -109,7 +116,9 @@ return {
 					},
 				},
 				lualine_x = {},
-				lualine_y = {},
+				lualine_y = {
+					{ require('gitblame').get_current_blame_text, cond = require('gitblame').is_blame_text_available },
+				},
 				lualine_z = {
 					{
 						'diagnostics',
