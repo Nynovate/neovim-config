@@ -1,6 +1,7 @@
 require("custom.core")
 require("custom.lazy")
 require('terminal')
+require('lazygit_wrapper')
 
 vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"}, {
   callback = function()
