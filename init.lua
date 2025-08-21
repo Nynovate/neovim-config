@@ -69,17 +69,3 @@ require('transparent').clear_prefix('trouble')
 
 vim.cmd("set laststatus=3")
 vim.cmd("set fillchars+=eob:	")
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "TelescopePrompt",
-	callback = function()
-		vim.o.laststatus = 0 -- Hide statusline when Telescope is active
-	end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-	pattern = "TelescopeClose", -- Or another appropriate event for Telescope closure
-	callback = function()
-		vim.o.laststatus = 2 -- Restore statusline when Telescope closes
-	end,
-})
