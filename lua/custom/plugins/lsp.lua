@@ -34,7 +34,7 @@ return {
 			require("lspconfig").clangd.setup({
 				capabilities = capabilities,	 -- << add this line
 				on_attach = function(_, bufnr)
-					print("clangd attached to buffer " .. bufnr)
+					print("  clangd attached.")
 					-- optional: set keymaps here
 				end,
 			})
