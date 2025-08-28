@@ -18,7 +18,6 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		vim.cmd("highlight CmpItemAbbr guibg=NONE ctermbg=NONE guifg=NONE ctermfg=NONE")
 		vim.cmd("highlight CmpItemAbbrDeprecated guibg=NONE ctermbg=NONE guifg=NONE ctermfg=NONE")
@@ -28,7 +27,6 @@ return {
 		vim.cmd("highlight CmpItemMenu guibg=NONE ctermbg=NONE guifg=#aaaaaa ctermfg=NONE")
 
 		require("luasnip.loaders.from_vscode").lazy_load()
-
 
 		cmp.setup({
 			window = {
@@ -72,20 +70,7 @@ return {
 					ellipsis_char = "...",
 				}),
 			},
-			sources = {
-				{ name = "nvim_lsp" },
-			},
-		})
-		-- Setup LSP servers after mason-lspconfig is ready
-		require("mason-lspconfig").setup_handlers({
-			function(server_name)
-				require("lspconfig")[server_name].setup({
-					capabilities = capabilities,
-					on_attach = function(_, bufnr)
-						print(server_name .. " attached to buffer " .. bufnr)
-					end,
-				})
-			end
+
 		})
 	end,
 }
