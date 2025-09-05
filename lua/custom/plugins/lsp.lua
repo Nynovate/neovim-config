@@ -81,8 +81,16 @@ return {
 			-- Get nvim-cmp capabilities
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			-- gdscript activation
+			local lspconfig = require('lspconfig')
+			lspconfig.gdscript.setup {
+				name = "gdscript",
+				cmd = { "nc", "localhost", "6005" },
+				root_dir = lspconfig.util.root_pattern("project.godot")
+			}
+
 			-- Setup clangd LSP
-			require("lspconfig").clangd.setup({
+			lspconfig.clangd.setup({
 				capabilities = capabilities,	 -- << add this line
 				on_attach = function(_, bufnr)
 					print("  clangd attached.")
